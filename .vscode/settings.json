@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "taqucinco",
+    ],
+    "editor.formatOnSave": true,
+    "go.useLanguageServer": true,
+    "cSpell.ignorePaths": [
+        "README.md"
+    ]
+}

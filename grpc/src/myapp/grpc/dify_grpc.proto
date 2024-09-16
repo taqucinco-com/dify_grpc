@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package dify_grpc;
+option go_package = "github.com/myapp/dify_grpc";
+
+service DifyGrpcService {
+  rpc SendMessage (DifyRequest) returns (DifyResponse) {}
+}
+
+message DifyRequest {
+  string name = 1;
+}
+
+message DifyResponse {
+  string answer = 1;
+}

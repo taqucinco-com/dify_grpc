@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func hoge() {
 	http.HandleFunc("/sse", sseHandler)
 	http.ListenAndServe(":8081", nil)
 }

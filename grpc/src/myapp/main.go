@@ -79,5 +79,6 @@ func main() {
 
 	if err := conn.Connect(); !errors.Is(err, io.EOF) {
 		fmt.Fprintln(os.Stderr, err)
+		return
 	}
 }

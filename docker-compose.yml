@@ -4,6 +4,7 @@ services:
     ports:
       - "8081:8081"
       - "8080:8080"
+      - "50051:50051"
     stdin_open: true
     tty: true
     volumes:

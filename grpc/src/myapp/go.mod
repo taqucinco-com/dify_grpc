@@ -1,6 +1,8 @@
-module example.com/myapp
+module taqucinco.com/myapp
 
 go 1.22.1
+
+replace dify => ./dify
 
 require (
 	github.com/joho/godotenv v1.5.1

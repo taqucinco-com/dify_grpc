@@ -7,9 +7,9 @@ import (
 	"log"
 	"net"
 
-	pb "example.com/myapp/grpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	pb "taqucinco.com/myapp/grpc"
 )
 
 var (

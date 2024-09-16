@@ -13,15 +13,11 @@ import (
 	"os/signal"
 	"syscall"
 
+	"taqucinco.com/myapp/dify"
+
 	"github.com/joho/godotenv"
 	sse "github.com/tmaxmax/go-sse"
 )
-
-type EventData struct {
-	Event  string  `json:"event"`
-	TaskID string  `json:"task_id"`
-	Answer *string `json:"answer"`
-}
 
 func main() {
 	err := godotenv.Load()
@@ -60,7 +56,7 @@ func main() {
 
 	unsubscribe := conn.SubscribeMessages(func(ev sse.Event) {
 		// fmt.Printf(ev.Data + "\n")
-		var eventData EventData
+		var eventData dify.EventData
 		err := json.Unmarshal([]byte(ev.Data), &eventData)
 		if err == nil {
 			eventName := eventData.Event

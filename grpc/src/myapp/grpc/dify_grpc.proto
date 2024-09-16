@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package dify_grpc;
-option go_package = "github.com/myapp/dify_grpc";
+option go_package = "taqucinco.com/myapp/grpc";
 
 service DifyGrpcService {
   rpc SendMessage (DifyRequest) returns (DifyResponse) {}

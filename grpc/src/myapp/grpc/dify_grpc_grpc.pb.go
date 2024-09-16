@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: grpc/dify_grpc.proto
 
-package dify_grpc
+package grpc
 
 import (
 	context "context"

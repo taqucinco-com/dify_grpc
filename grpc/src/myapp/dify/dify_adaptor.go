@@ -5,3 +5,7 @@ type EventData struct {
 	TaskID string  `json:"task_id"`
 	Answer *string `json:"answer"`
 }
+
+func send(ch chan<- string) {
+	close(ch)
+}

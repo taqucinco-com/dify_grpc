@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DifyGrpcServiceClient interface {
-	SendMessage(ctx context.Context, in *DifyRequest, opts ...grpc.CallOption) (*DifyResponse, error)
+	SendQuestion(ctx context.Context, in *DifyRequest, opts ...grpc.CallOption) (DifyGrpcService_SendQuestionClient, error)
 }
 
 type difyGrpcServiceClient struct {
@@ -33,20 +33,43 @@ func NewDifyGrpcServiceClient(cc grpc.ClientConnInterface) DifyGrpcServiceClient
 	return &difyGrpcServiceClient{cc}
 }
 
-func (c *difyGrpcServiceClient) SendMessage(ctx context.Context, in *DifyRequest, opts ...grpc.CallOption) (*DifyResponse, error) {
-	out := new(DifyResponse)
-	err := c.cc.Invoke(ctx, "/dify_grpc.DifyGrpcService/SendMessage", in, out, opts...)
+func (c *difyGrpcServiceClient) SendQuestion(ctx context.Context, in *DifyRequest, opts ...grpc.CallOption) (DifyGrpcService_SendQuestionClient, error) {
+	stream, err := c.cc.NewStream(ctx, &DifyGrpcService_ServiceDesc.Streams[0], "/dify_grpc.DifyGrpcService/SendQuestion", opts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &difyGrpcServiceSendQuestionClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type DifyGrpcService_SendQuestionClient interface {
+	Recv() (*DifyResponse, error)
+	grpc.ClientStream
+}
+
+type difyGrpcServiceSendQuestionClient struct {
+	grpc.ClientStream
+}
+
+func (x *difyGrpcServiceSendQuestionClient) Recv() (*DifyResponse, error) {
+	m := new(DifyResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 // DifyGrpcServiceServer is the server API for DifyGrpcService service.
 // All implementations must embed UnimplementedDifyGrpcServiceServer
 // for forward compatibility
 type DifyGrpcServiceServer interface {
-	SendMessage(context.Context, *DifyRequest) (*DifyResponse, error)
+	SendQuestion(*DifyRequest, DifyGrpcService_SendQuestionServer) error
 	mustEmbedUnimplementedDifyGrpcServiceServer()
 }
 
@@ -54,8 +77,8 @@ type DifyGrpcServiceServer interface {
 type UnimplementedDifyGrpcServiceServer struct {
 }
 
-func (UnimplementedDifyGrpcServiceServer) SendMessage(context.Context, *DifyRequest) (*DifyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SendMessage not implemented")
+func (UnimplementedDifyGrpcServiceServer) SendQuestion(*DifyRequest, DifyGrpcService_SendQuestionServer) error {
+	return status.Errorf(codes.Unimplemented, "method SendQuestion not implemented")
 }
 func (UnimplementedDifyGrpcServiceServer) mustEmbedUnimplementedDifyGrpcServiceServer() {}
 
@@ -70,22 +93,25 @@ func RegisterDifyGrpcServiceServer(s grpc.ServiceRegistrar, srv DifyGrpcServiceS
 	s.RegisterService(&DifyGrpcService_ServiceDesc, srv)
 }
 
-func _DifyGrpcService_SendMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DifyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
+func _DifyGrpcService_SendQuestion_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(DifyRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(DifyGrpcServiceServer).SendMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/dify_grpc.DifyGrpcService/SendMessage",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DifyGrpcServiceServer).SendMessage(ctx, req.(*DifyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(DifyGrpcServiceServer).SendQuestion(m, &difyGrpcServiceSendQuestionServer{stream})
+}
+
+type DifyGrpcService_SendQuestionServer interface {
+	Send(*DifyResponse) error
+	grpc.ServerStream
+}
+
+type difyGrpcServiceSendQuestionServer struct {
+	grpc.ServerStream
+}
+
+func (x *difyGrpcServiceSendQuestionServer) Send(m *DifyResponse) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 // DifyGrpcService_ServiceDesc is the grpc.ServiceDesc for DifyGrpcService service.
@@ -94,12 +120,13 @@ func _DifyGrpcService_SendMessage_Handler(srv interface{}, ctx context.Context, 
 var DifyGrpcService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "dify_grpc.DifyGrpcService",
 	HandlerType: (*DifyGrpcServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
+	Methods:     []grpc.MethodDesc{},
+	Streams: []grpc.StreamDesc{
 		{
-			MethodName: "SendMessage",
-			Handler:    _DifyGrpcService_SendMessage_Handler,
+			StreamName:    "SendQuestion",
+			Handler:       _DifyGrpcService_SendQuestion_Handler,
+			ServerStreams: true,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
 	Metadata: "grpc/dify_grpc.proto",
 }

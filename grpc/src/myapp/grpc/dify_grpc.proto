@@ -4,13 +4,17 @@ package dify_grpc;
 option go_package = "taqucinco.com/myapp/grpc";
 
 service DifyGrpcService {
-  rpc SendMessage (DifyRequest) returns (DifyResponse) {}
+  rpc SendQuestion (DifyRequest) returns (stream DifyResponse) {}
 }
 
 message DifyRequest {
   string name = 1;
+  string question = 2;
+  optional string conversation_id = 3;
 }
 
 message DifyResponse {
-  string answer = 1;
+  string task_id = 1;
+  string conversation_id = 2;
+  optional string answer = 3;
 }

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABFBDFBD2CA820DE007493F4 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = ABFBDFBC2CA820DE007493F4 /* SwiftProtobuf */; };
+		ABFBDFBF2CA820ED007493F4 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = ABFBDFBE2CA820ED007493F4 /* GRPC */; };
+		ABFBDFC22CA824C3007493F4 /* GreeterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBDFC12CA824C3007493F4 /* GreeterService.swift */; };
+		ABFBDFC72CA82611007493F4 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = ABFBDFC62CA82611007493F4 /* ArgumentParser */; };
+		ABFBDFCB2CA8281E007493F4 /* _GRPCCore in Frameworks */ = {isa = PBXBuildFile; productRef = ABFBDFCA2CA8281E007493F4 /* _GRPCCore */; };
+		ABFBDFD12CA82C79007493F4 /* _GRPCProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = ABFBDFD02CA82C79007493F4 /* _GRPCProtobuf */; };
+		ABFBDFD32CA82CE3007493F4 /* _GRPCHTTP2Transport in Frameworks */ = {isa = PBXBuildFile; productRef = ABFBDFD22CA82CE3007493F4 /* _GRPCHTTP2Transport */; };
+		ABFBDFD62CA830AE007493F4 /* helloworld.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBDFD42CA830AE007493F4 /* helloworld.grpc.swift */; };
+		ABFBDFD72CA830AE007493F4 /* helloworld.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBDFD52CA830AE007493F4 /* helloworld.pb.swift */; };
 		BB0E53662CA7EA37009F1C5C /* ai_conversation_sampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0E53652CA7EA37009F1C5C /* ai_conversation_sampleApp.swift */; };
 		BB0E53682CA7EA37009F1C5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0E53672CA7EA37009F1C5C /* ContentView.swift */; };
 		BB0E536A2CA7EA3B009F1C5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0E53692CA7EA3B009F1C5C /* Assets.xcassets */; };
@@ -34,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ABFBDFC12CA824C3007493F4 /* GreeterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreeterService.swift; sourceTree = "<group>"; };
+		ABFBDFD42CA830AE007493F4 /* helloworld.grpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloworld.grpc.swift; sourceTree = "<group>"; };
+		ABFBDFD52CA830AE007493F4 /* helloworld.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloworld.pb.swift; sourceTree = "<group>"; };
 		BB0E53622CA7EA37009F1C5C /* ai_conversation_sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ai_conversation_sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0E53652CA7EA37009F1C5C /* ai_conversation_sampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ai_conversation_sampleApp.swift; sourceTree = "<group>"; };
 		BB0E53672CA7EA37009F1C5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +64,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFBDFBF2CA820ED007493F4 /* GRPC in Frameworks */,
+				ABFBDFD12CA82C79007493F4 /* _GRPCProtobuf in Frameworks */,
+				ABFBDFCB2CA8281E007493F4 /* _GRPCCore in Frameworks */,
+				ABFBDFBD2CA820DE007493F4 /* SwiftProtobuf in Frameworks */,
+				ABFBDFC72CA82611007493F4 /* ArgumentParser in Frameworks */,
+				ABFBDFD32CA82CE3007493F4 /* _GRPCHTTP2Transport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ABFBDFBB2CA820DE007493F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB0E53592CA7EA37009F1C5C = {
 			isa = PBXGroup;
 			children = (
 				BB0E53642CA7EA37009F1C5C /* ai_conversation_sample */,
 				BB0E53762CA7EA3B009F1C5C /* ai_conversation_sampleTests */,
 				BB0E53802CA7EA3B009F1C5C /* ai_conversation_sampleUITests */,
+				ABFBDFBB2CA820DE007493F4 /* Frameworks */,
 				BB0E53632CA7EA37009F1C5C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,8 +121,11 @@
 		BB0E53642CA7EA37009F1C5C /* ai_conversation_sample */ = {
 			isa = PBXGroup;
 			children = (
+				ABFBDFD42CA830AE007493F4 /* helloworld.grpc.swift */,
+				ABFBDFD52CA830AE007493F4 /* helloworld.pb.swift */,
 				BB0E53652CA7EA37009F1C5C /* ai_conversation_sampleApp.swift */,
 				BB0E53672CA7EA37009F1C5C /* ContentView.swift */,
+				ABFBDFC12CA824C3007493F4 /* GreeterService.swift */,
 				BB0E53692CA7EA3B009F1C5C /* Assets.xcassets */,
 				BB0E536B2CA7EA3B009F1C5C /* ai_conversation_sample.entitlements */,
 				BB0E536C2CA7EA3B009F1C5C /* Preview Content */,
@@ -193,7 +222,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					BB0E53612CA7EA37009F1C5C = {
 						CreatedOnToolsVersion = 15.2;
@@ -217,6 +246,13 @@
 				Base,
 			);
 			mainGroup = BB0E53592CA7EA37009F1C5C;
+			packageReferences = (
+				ABFBDFB02CA81A48007493F4 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				ABFBDFB12CA81AFA007493F4 /* XCRemoteSwiftPackageReference "swift-nio" */,
+				ABFBDFB22CA81C29007493F4 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				ABFBDFC02CA821DC007493F4 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				ABFBDFC52CA825D4007493F4 /* XCRemoteSwiftPackageReference "grpc-swift-nio-transport" */,
+			);
 			productRefGroup = BB0E53632CA7EA37009F1C5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFBDFD62CA830AE007493F4 /* helloworld.grpc.swift in Sources */,
+				ABFBDFD72CA830AE007493F4 /* helloworld.pb.swift in Sources */,
+				ABFBDFC22CA824C3007493F4 /* GreeterService.swift in Sources */,
 				BB0E53682CA7EA37009F1C5C /* ContentView.swift in Sources */,
 				BB0E53662CA7EA37009F1C5C /* ai_conversation_sampleApp.swift in Sources */,
 			);
@@ -331,6 +370,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -392,6 +432,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -417,10 +458,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ai_conversation_sample/ai_conversation_sample.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ai_conversation_sample/Preview Content\"";
-				DEVELOPMENT_TEAM = 7SGSPTV4C4;
+				DEVELOPMENT_TEAM = LX7TTPUK9R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -434,13 +478,14 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.taqucinco.sample.ai-conversation-sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample.ai-conversation-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -455,10 +500,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ai_conversation_sample/ai_conversation_sample.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ai_conversation_sample/Preview Content\"";
-				DEVELOPMENT_TEAM = 7SGSPTV4C4;
+				DEVELOPMENT_TEAM = LX7TTPUK9R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -472,13 +520,14 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.taqucinco.sample.ai-conversation-sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.sample.ai-conversation-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -490,10 +539,10 @@
 		BB0E538B2CA7EA3B009F1C5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7SGSPTV4C4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
@@ -513,10 +562,10 @@
 		BB0E538C2CA7EA3B009F1C5C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7SGSPTV4C4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
@@ -536,9 +585,9 @@
 		BB0E538E2CA7EA3B009F1C5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7SGSPTV4C4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
@@ -558,9 +607,9 @@
 		BB0E538F2CA7EA3B009F1C5C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 7SGSPTV4C4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
@@ -617,6 +666,82 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABFBDFB02CA81A48007493F4 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.28.1;
+			};
+		};
+		ABFBDFB12CA81AFA007493F4 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.73.0;
+			};
+		};
+		ABFBDFB22CA81C29007493F4 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.23.1;
+			};
+		};
+		ABFBDFC02CA821DC007493F4 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		ABFBDFC52CA825D4007493F4 /* XCRemoteSwiftPackageReference "grpc-swift-nio-transport" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift-nio-transport";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABFBDFBC2CA820DE007493F4 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFBDFB02CA81A48007493F4 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		ABFBDFBE2CA820ED007493F4 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFBDFB22CA81C29007493F4 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		ABFBDFC62CA82611007493F4 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFBDFC02CA821DC007493F4 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		ABFBDFCA2CA8281E007493F4 /* _GRPCCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFBDFB22CA81C29007493F4 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = _GRPCCore;
+		};
+		ABFBDFD02CA82C79007493F4 /* _GRPCProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFBDFB22CA81C29007493F4 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = _GRPCProtobuf;
+		};
+		ABFBDFD22CA82CE3007493F4 /* _GRPCHTTP2Transport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABFBDFB22CA81C29007493F4 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = _GRPCHTTP2Transport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BB0E535A2CA7EA37009F1C5C /* Project object */;
 }

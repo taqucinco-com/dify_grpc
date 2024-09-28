@@ -18,8 +18,8 @@ $ sh generate.sh
 3. コードを書く
 
 参考となるサンプルは以下。  
-https://github.com/grpc/grpc-swift
-https://github.com/apple/swift-nio
-https://github.com/apple/swift-protobuf
-https://swiftpackageindex.com/grpc/grpc-swift/main/tutorials/grpccore/route-guide
 
+- https://github.com/grpc/grpc-swift
+- https://github.com/apple/swift-nio
+- https://github.com/apple/swift-protobuf
+- https://swiftpackageindex.com/grpc/grpc-swift/main/tutorials/grpccore/route-guide

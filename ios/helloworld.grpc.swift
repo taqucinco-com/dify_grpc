@@ -10,42 +10,42 @@
 import GRPCCore
 import GRPCProtobuf
 
-internal enum Helloworld_Greeter {
-    internal static let descriptor = GRPCCore.ServiceDescriptor.helloworld_Greeter
-    internal enum Method {
-        internal enum SayHello {
-            internal typealias Input = Helloworld_HelloRequest
-            internal typealias Output = Helloworld_HelloResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+public enum Helloworld_Greeter {
+    public static let descriptor = GRPCCore.ServiceDescriptor.helloworld_Greeter
+    public enum Method {
+        public enum SayHello {
+            public typealias Input = Helloworld_HelloRequest
+            public typealias Output = Helloworld_HelloResponse
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: Helloworld_Greeter.descriptor.fullyQualifiedService,
                 method: "SayHello"
             )
         }
-        internal enum SayHelloAgain {
-            internal typealias Input = Helloworld_HelloRequest
-            internal typealias Output = Helloworld_HelloResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        public enum SayHelloAgain {
+            public typealias Input = Helloworld_HelloRequest
+            public typealias Output = Helloworld_HelloResponse
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: Helloworld_Greeter.descriptor.fullyQualifiedService,
                 method: "SayHelloAgain"
             )
         }
-        internal enum SayHelloToMany {
-            internal typealias Input = Helloworld_HelloRequest
-            internal typealias Output = Helloworld_HelloResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        public enum SayHelloToMany {
+            public typealias Input = Helloworld_HelloRequest
+            public typealias Output = Helloworld_HelloResponse
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: Helloworld_Greeter.descriptor.fullyQualifiedService,
                 method: "SayHelloToMany"
             )
         }
-        internal enum SayChat {
-            internal typealias Input = Helloworld_HelloRequest
-            internal typealias Output = Helloworld_HelloResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        public enum SayChat {
+            public typealias Input = Helloworld_HelloRequest
+            public typealias Output = Helloworld_HelloResponse
+            public static let descriptor = GRPCCore.MethodDescriptor(
                 service: Helloworld_Greeter.descriptor.fullyQualifiedService,
                 method: "SayChat"
             )
         }
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        public static let descriptors: [GRPCCore.MethodDescriptor] = [
             SayHello.descriptor,
             SayHelloAgain.descriptor,
             SayHelloToMany.descriptor,
@@ -53,24 +53,24 @@ internal enum Helloworld_Greeter {
         ]
     }
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias StreamingServiceProtocol = Helloworld_GreeterStreamingServiceProtocol
+    public typealias StreamingServiceProtocol = Helloworld_GreeterStreamingServiceProtocol
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias ServiceProtocol = Helloworld_GreeterServiceProtocol
+    public typealias ServiceProtocol = Helloworld_GreeterServiceProtocol
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias ClientProtocol = Helloworld_GreeterClientProtocol
+    public typealias ClientProtocol = Helloworld_GreeterClientProtocol
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias Client = Helloworld_GreeterClient
+    public typealias Client = Helloworld_GreeterClient
 }
 
 extension GRPCCore.ServiceDescriptor {
-    internal static let helloworld_Greeter = Self(
+    public static let helloworld_Greeter = Self(
         package: "helloworld",
         service: "Greeter"
     )
 }
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Helloworld_GreeterStreamingServiceProtocol: GRPCCore.RegistrableRPCService {
+public protocol Helloworld_GreeterStreamingServiceProtocol: GRPCCore.RegistrableRPCService {
     func sayHello(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse>
     
     func sayHelloAgain(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse>
@@ -84,7 +84,7 @@ internal protocol Helloworld_GreeterStreamingServiceProtocol: GRPCCore.Registrab
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension Helloworld_Greeter.StreamingServiceProtocol {
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal func registerMethods(with router: inout GRPCCore.RPCRouter) {
+    public func registerMethods(with router: inout GRPCCore.RPCRouter) {
         router.registerHandler(
             forMethod: Helloworld_Greeter.Method.SayHello.descriptor,
             deserializer: GRPCProtobuf.ProtobufDeserializer<Helloworld_HelloRequest>(),
@@ -121,7 +121,7 @@ extension Helloworld_Greeter.StreamingServiceProtocol {
 }
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Helloworld_GreeterServiceProtocol: Helloworld_Greeter.StreamingServiceProtocol {
+public protocol Helloworld_GreeterServiceProtocol: Helloworld_Greeter.StreamingServiceProtocol {
     func sayHello(request: GRPCCore.ServerRequest.Single<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Single<Helloworld_HelloResponse>
     
     func sayHelloAgain(request: GRPCCore.ServerRequest.Single<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse>
@@ -134,24 +134,24 @@ internal protocol Helloworld_GreeterServiceProtocol: Helloworld_Greeter.Streamin
 /// Partial conformance to `Helloworld_GreeterStreamingServiceProtocol`.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension Helloworld_Greeter.ServiceProtocol {
-    internal func sayHello(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse> {
+    public func sayHello(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse> {
         let response = try await self.sayHello(request: GRPCCore.ServerRequest.Single(stream: request))
         return GRPCCore.ServerResponse.Stream(single: response)
     }
     
-    internal func sayHelloAgain(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse> {
+    public func sayHelloAgain(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse> {
         let response = try await self.sayHelloAgain(request: GRPCCore.ServerRequest.Single(stream: request))
         return response
     }
     
-    internal func sayHelloToMany(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse> {
+    public func sayHelloToMany(request: GRPCCore.ServerRequest.Stream<Helloworld_HelloRequest>) async throws -> GRPCCore.ServerResponse.Stream<Helloworld_HelloResponse> {
         let response = try await self.sayHelloToMany(request: request)
         return GRPCCore.ServerResponse.Stream(single: response)
     }
 }
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Helloworld_GreeterClientProtocol: Sendable {
+public protocol Helloworld_GreeterClientProtocol: Sendable {
     func sayHello<R>(
         request: GRPCCore.ClientRequest.Single<Helloworld_HelloRequest>,
         serializer: some GRPCCore.MessageSerializer<Helloworld_HelloRequest>,
@@ -187,7 +187,7 @@ internal protocol Helloworld_GreeterClientProtocol: Sendable {
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension Helloworld_Greeter.ClientProtocol {
-    internal func sayHello<R>(
+    public func sayHello<R>(
         request: GRPCCore.ClientRequest.Single<Helloworld_HelloRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse.Single<Helloworld_HelloResponse>) async throws -> R = {
@@ -203,7 +203,7 @@ extension Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayHelloAgain<R>(
+    public func sayHelloAgain<R>(
         request: GRPCCore.ClientRequest.Single<Helloworld_HelloRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse.Stream<Helloworld_HelloResponse>) async throws -> R
@@ -217,7 +217,7 @@ extension Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayHelloToMany<R>(
+    public func sayHelloToMany<R>(
         request: GRPCCore.ClientRequest.Stream<Helloworld_HelloRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse.Single<Helloworld_HelloResponse>) async throws -> R = {
@@ -233,7 +233,7 @@ extension Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayChat<R>(
+    public func sayChat<R>(
         request: GRPCCore.ClientRequest.Stream<Helloworld_HelloRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse.Stream<Helloworld_HelloResponse>) async throws -> R
@@ -250,7 +250,7 @@ extension Helloworld_Greeter.ClientProtocol {
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension Helloworld_Greeter.ClientProtocol {
-    internal func sayHello<Result>(
+    public func sayHello<Result>(
         _ message: Helloworld_HelloRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -269,7 +269,7 @@ extension Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayHelloAgain<Result>(
+    public func sayHelloAgain<Result>(
         _ message: Helloworld_HelloRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -286,7 +286,7 @@ extension Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayHelloToMany<Result>(
+    public func sayHelloToMany<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
         requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Helloworld_HelloRequest>) async throws -> Void,
@@ -305,7 +305,7 @@ extension Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayChat<Result>(
+    public func sayChat<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
         requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Helloworld_HelloRequest>) async throws -> Void,
@@ -324,14 +324,14 @@ extension Helloworld_Greeter.ClientProtocol {
 }
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal struct Helloworld_GreeterClient: Helloworld_Greeter.ClientProtocol {
+public struct Helloworld_GreeterClient: Helloworld_Greeter.ClientProtocol {
     private let client: GRPCCore.GRPCClient
     
-    internal init(wrapping client: GRPCCore.GRPCClient) {
+    public init(wrapping client: GRPCCore.GRPCClient) {
         self.client = client
     }
     
-    internal func sayHello<R>(
+    public func sayHello<R>(
         request: GRPCCore.ClientRequest.Single<Helloworld_HelloRequest>,
         serializer: some GRPCCore.MessageSerializer<Helloworld_HelloRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Helloworld_HelloResponse>,
@@ -350,7 +350,7 @@ internal struct Helloworld_GreeterClient: Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayHelloAgain<R>(
+    public func sayHelloAgain<R>(
         request: GRPCCore.ClientRequest.Single<Helloworld_HelloRequest>,
         serializer: some GRPCCore.MessageSerializer<Helloworld_HelloRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Helloworld_HelloResponse>,
@@ -367,7 +367,7 @@ internal struct Helloworld_GreeterClient: Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayHelloToMany<R>(
+    public func sayHelloToMany<R>(
         request: GRPCCore.ClientRequest.Stream<Helloworld_HelloRequest>,
         serializer: some GRPCCore.MessageSerializer<Helloworld_HelloRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Helloworld_HelloResponse>,
@@ -386,7 +386,7 @@ internal struct Helloworld_GreeterClient: Helloworld_Greeter.ClientProtocol {
         )
     }
     
-    internal func sayChat<R>(
+    public func sayChat<R>(
         request: GRPCCore.ClientRequest.Stream<Helloworld_HelloRequest>,
         serializer: some GRPCCore.MessageSerializer<Helloworld_HelloRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Helloworld_HelloResponse>,

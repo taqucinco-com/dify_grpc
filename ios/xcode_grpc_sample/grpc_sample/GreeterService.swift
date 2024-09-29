@@ -40,7 +40,7 @@ struct GreeterService: AsyncParsableCommand {
 
             let greeter = Helloworld_GreeterClient(wrapping: client)
             let reply = try await greeter.sayHello(.with { $0.name = name })
-//            print(reply.message)
+            print(reply.message)
         
             return reply.message
         }
@@ -69,19 +69,19 @@ struct GreeterService: AsyncParsableCommand {
                     var requrest = Helloworld_HelloRequest()
                     requrest.name = name
         
-                    func hoge () async throws -> ClientResponse.Stream<Helloworld_HelloResponse> {
-                        try await withCheckedThrowingContinuation { continuation in
-                            Task {
-                                try await greeter.sayHelloAgain(requrest) { response in
-                                    continuation.resume(returning: response)
-                                }
-                            }
-                        }
-                    }
+//                    func converter () async throws -> ClientResponse.Stream<Helloworld_HelloResponse> {
+//                        try await withCheckedThrowingContinuation { continuation in
+//                            Task {
+//                                try await greeter.sayHelloAgain(requrest) { response in
+//                                    continuation.resume(returning: response)
+//                                }
+//                            }
+//                        }
+//                    }
         
                     try await greeter.sayHelloAgain(requrest) { response in
                         for try await reply in response.messages {
-//                            print(reply.message)
+                            print(reply.message)
                             continuation.yield(reply.message)
                         }
                     }

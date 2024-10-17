@@ -9,5 +9,6 @@ protoc ./*.proto \
     --plugin=$BREW_BIN/protoc-gen-grpc-swift \
     --swift_opt=Visibility=Public \
     --grpc-swift_opt=_V2=true \
+    --grpc-swift_opt=Visibility=Public \
     --swift_out=. \
     --grpc-swift_out=.

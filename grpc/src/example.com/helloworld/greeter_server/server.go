@@ -33,13 +33,14 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 // SayHelloAgain implements helloworld.GreeterServer
 func (s *server) SayHelloAgain(in *pb.HelloRequest, stream pb.Greeter_SayHelloAgainServer) error {
 	log.Printf("Received SayHelloAgain: %v", in.GetName())
-	for i := 0; i < 2; i++ {
-		res := &pb.HelloResponse{Message: "Hello " + in.GetName()}
+	reply := "Hello " + in.GetName() + ". Have a nice day!"
+	for _, char := range reply {
+		res := &pb.HelloResponse{Message: string(char)}
 		if err := stream.Send(res); err != nil {
 			log.Fatalf("failed to send: %v", err)
 			return err
 		}
-		time.Sleep(3 * time.Second)
+		time.Sleep(100 * time.Millisecond)
 	}
 	log.Printf("Closed SayHelloAgain")
 	return nil

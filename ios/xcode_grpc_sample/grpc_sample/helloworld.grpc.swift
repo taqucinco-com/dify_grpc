@@ -89,7 +89,7 @@ extension Helloworld_Greeter.StreamingServiceProtocol {
             forMethod: Helloworld_Greeter.Method.SayHello.descriptor,
             deserializer: GRPCProtobuf.ProtobufDeserializer<Helloworld_HelloRequest>(),
             serializer: GRPCProtobuf.ProtobufSerializer<Helloworld_HelloResponse>(),
-            handler: { request,arg  in
+            handler: { request,arg   in
                 try await self.sayHello(request: request)
             }
         )
@@ -97,7 +97,7 @@ extension Helloworld_Greeter.StreamingServiceProtocol {
             forMethod: Helloworld_Greeter.Method.SayHelloAgain.descriptor,
             deserializer: GRPCProtobuf.ProtobufDeserializer<Helloworld_HelloRequest>(),
             serializer: GRPCProtobuf.ProtobufSerializer<Helloworld_HelloResponse>(),
-            handler: { request,arg  in
+            handler: { request,arg   in
                 try await self.sayHelloAgain(request: request)
             }
         )
@@ -105,7 +105,7 @@ extension Helloworld_Greeter.StreamingServiceProtocol {
             forMethod: Helloworld_Greeter.Method.SayHelloToMany.descriptor,
             deserializer: GRPCProtobuf.ProtobufDeserializer<Helloworld_HelloRequest>(),
             serializer: GRPCProtobuf.ProtobufSerializer<Helloworld_HelloResponse>(),
-            handler: { request,arg  in
+            handler: { request,arg   in
                 try await self.sayHelloToMany(request: request)
             }
         )
